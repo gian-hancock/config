@@ -1,3 +1,6 @@
+# Note
+This is now unused, see keyd directory for alternative
+
 # Keybindings for Linux
 Autokey configuration for my Linux keybindings. The configuration is provided in the `data` directory. `generate_config.sh` is the script used to generate the configuration files.
 
