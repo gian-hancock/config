@@ -1,0 +1,10 @@
+[user]
+	# email = <email>
+	name = Gian Hancock
+[init]
+	defaultBranch = main
+[alias]
+	logp = log --oneline --all --graph --decorate
+	logps = log --oneline --all --graph -n 15 --decorate
+    f = !git fetch && git logps
+    # ext = !'C:\\Program Files (x86)\\GitExtensions\\gitex.cmd' browse .
