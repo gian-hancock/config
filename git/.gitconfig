@@ -8,3 +8,6 @@
 	logps = log --oneline --all --graph -n 15 --decorate
     f = !git fetch && git logps
     # ext = !'C:\\Program Files (x86)\\GitExtensions\\gitex.cmd' browse .
+[credential]
+	helper = cache --timeout=3600
+
