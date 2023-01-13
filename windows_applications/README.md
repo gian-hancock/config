@@ -1,4 +1,5 @@
 # Winget Packages
+Run as administrator
 ```
 winget install -e --id JetBrains.PHPStorm
 winget install -e --id JetBrains.DataGrip
@@ -13,6 +14,9 @@ winget install -e --id M2Team.NanaZip
 winget install -e --id Obsidian.Obsidian
 winget install -e --id VideoLAN.VLC
 winget install -e --id Discord.Discord
+winget install -e --id Microsoft.PowerToys
+winget install -e --id Microsoft.SQLServerManagementStudio
+winget install -e --id Microsoft.SQLServer.2019.Developer
 ```
 
 # Chocolatey Packages
