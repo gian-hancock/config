@@ -17,6 +17,8 @@ winget install -e --id Discord.Discord
 winget install -e --id Microsoft.PowerToys
 winget install -e --id Microsoft.SQLServerManagementStudio
 winget install -e --id Microsoft.SQLServer.2019.Developer
+winget install -e --id Rustlang.Rustup
+winget install -e --id Microsoft.VisualStudio.2022.BuildTools
 ```
 
 # Chocolatey Packages
