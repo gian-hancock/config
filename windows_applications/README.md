@@ -19,6 +19,8 @@ winget install -e --id Microsoft.SQLServerManagementStudio
 winget install -e --id Microsoft.SQLServer.2019.Developer
 winget install -e --id Rustlang.Rustup
 winget install -e --id Microsoft.VisualStudio.2022.BuildTools
+winget install -e --id Mozilla.Firefox
+winget install -e --id KDE.Krita
 ```
 
 # Chocolatey Packages
