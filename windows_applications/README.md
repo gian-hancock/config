@@ -21,6 +21,7 @@ winget install -e --id Rustlang.Rustup
 winget install -e --id Microsoft.VisualStudio.2022.BuildTools
 winget install -e --id Mozilla.Firefox
 winget install -e --id KDE.Krita
+winget install -e --id Anki.Anki
 ```
 
 # Chocolatey Packages
