@@ -5,6 +5,7 @@ winget install -e --id JetBrains.PHPStorm
 winget install -e --id JetBrains.DataGrip
 winget install -e --id TheDocumentFoundation.LibreOffice
 winget install -e --id Postman.Postman
+winget install -e --id KDE.KDiff3
 winget install -e --id Git.Git
 winget install -e --id GitExtensionsTeam.GitExtensions
 winget install -e --id SublimeHQ.SublimeText.4
