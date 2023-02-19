@@ -1,0 +1,1 @@
+https://ohmyposh.dev/docs/themes#quick-term
