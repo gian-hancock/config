@@ -8,3 +8,7 @@ I used the following article to get it working eventually. It explicitly address
 
 https://medium.com/@abrarahmedsyed/how-to-create-a-truly-portable-plug-n-play-ubuntu-installation-on-an-external-ssd-hdd-7aaadc7d796a
 
+# Fish Shell + Starship Prompt
+- https://fishshell.com/
+- https://starship.rs/guide/#%F0%9F%9A%80-installation
+- I use the FiraMono NerdFont https://www.nerdfonts.com/font-downloads
