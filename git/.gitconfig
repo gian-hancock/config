@@ -1,5 +1,6 @@
 # Place in ~/.gitconfig
 [user]
+	# TODO: Update this
 	# email = <email>
 	name = Gian Hancock
 [init]
@@ -13,3 +14,5 @@
 	helper = cache --timeout=3600
 [core]
 	autocrlf = false
+	# TODO: Put hooks in hooks path and update this
+	# hooksPath = C:\Users\GianHancock\.githooks
