@@ -9,6 +9,7 @@
 	logp = log --oneline --all --graph --decorate
 	logps = log --oneline --all --graph -n 15 --decorate
     f = !git fetch && git logps
+    wip = "!f() { if [[ \"$(git branch --show-current)\" != gian/wip--* ]]; then git checkout -b gian/wip--$(git branch --show-current)--$(git rev-parse --short HEAD); fi; git commit --no-verify -m \"WIP: $1\"; }; f"
     # ext = !'C:\\Program Files (x86)\\GitExtensions\\gitex.cmd' browse .
 [credential]
 	helper = cache --timeout=3600
