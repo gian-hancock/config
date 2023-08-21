@@ -10,7 +10,7 @@
     # log
 	l = log --oneline --all --graph -n 15 --decorate
     # fetch
-    f = !git fetch && git logps
+    f = !git fetch && git l
     # checkout-soft
     cs = symbolic-ref HEAD
     # work-in-progress
@@ -21,7 +21,7 @@
 				git checkout -b \"$branch_name\"; \
 			fi; \
 			git commit --no-verify -m \"WIP: $1\" && git push -u origin \"$branch_name\"; \
-			git logps; \
+			git l; \
 			git status; \
 		}; f"
     # ext = !'C:\\Program Files (x86)\\GitExtensions\\gitex.cmd' browse .
