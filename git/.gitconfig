@@ -1,17 +1,22 @@
 # Place in ~/.gitconfig
 [user]
-	# TODO: Update this
-	# email = <email>
+    # TODO: email = <email>
 	name = Gian Hancock
 [init]
 	defaultBranch = main
 [alias]
-	logp = log --oneline --all --graph --decorate
-	logps = log --oneline --all --graph -n 15 --decorate
+    # log-long
+	ll = log --oneline --all --graph --decorate
+    # log
+	l = log --oneline --all --graph -n 15 --decorate
+    # fetch
     f = !git fetch && git logps
+    # checkout-soft
+    cs = symbolic-ref HEAD
+    # work-in-progress
 	wip = "!f() { \
 			branch_name=\"$(git branch --show-current)\"; \
-			if [[ \"$branch_name\" != gian/wip--* ]]; then \
+			if [[ \"$branch_name\" != gian/wip-* ]]; then \
 				branch_name=\"gian/wip-$(git branch --show-current)-$(git rev-parse --short HEAD)\"; \
 				git checkout -b \"$branch_name\"; \
 			fi; \
@@ -24,5 +29,4 @@
 	helper = cache --timeout=3600
 [core]
 	autocrlf = false
-	# TODO: Put hooks in hooks path and update this
-	# hooksPath = C:\Users\GianHancock\.githooks
+	#TODO: Put hooks in hooksPath and uncomment hooksPath = ~/.githooks
