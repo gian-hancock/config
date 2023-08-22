@@ -1,4 +1,4 @@
-# Place in ~/.gitconfig
+# Place in ~/.gitconfig or %USERPROFILE%/.gitconfig
 [user]
     # TODO: email = <email>
 	name = Gian Hancock
@@ -29,4 +29,4 @@
 	helper = cache --timeout=3600
 [core]
 	autocrlf = false
-	#TODO: Put hooks in hooksPath and uncomment hooksPath = ~/.githooks
+	#TODO: Put copy hooks to hooksPath and uncomment set hooksPath = ~/.githooks or %USERPROFILE%/.githooks
