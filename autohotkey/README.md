@@ -1,18 +1,7 @@
-# AutoHotKey
-`_caps_nav.exe` is an executable which allows the following navigation commands
+# Gian's Extend Layer
+An extend layer activated with the CapsLock key. Similar to https://dreymar.colemak.org/layers-extend.html but with far 
+fewer features.
 
-```
-/* 
-| -------------------------------- | -------------------------------- |
-| Shortcut                         | Output                           |
-| CAPSLOCK + { i, j, k, l }        | { Up, Left, Down, Right }        |
-| CAPSLOCK + { u, o }              | { Home, End }                    |
-| CAPSLOCK + { h, ; }              | { Backspace, Delete}             |
-| CAPSLOCK + { m, . }              | CTRL + { Left, Right }
-*/
-```
+Run with AHK 2, or just used the compiled .exe.
 
-`_caps_nav.ahk` is an AHK script with roughly corresponds to the executable described above. I've actually lost the exact source for the executable.
-
-## Automatic Startup
-For automatic startup place a shortcut to this script in the directory `%APPDATA%\Microsoft\Windows\Start Menu\Programs\Startup`
+Read the comment at the top of [gians_extend_layer.ahk](gians_extend_layer.ahk) for more keymap and other info.
