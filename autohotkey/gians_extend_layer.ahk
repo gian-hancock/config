@@ -8,14 +8,14 @@ fewer features.
 Key map: qwerty keys -> caps layer function (see key below)
 
 Standard:
-  u  i  o  p    ->    h  b  d  e
-h [j  k  l  ;]  ->  < [^  v  >  s]
-  m  ,  .  /    ->       l  x  r  i
+  u  i  o  p    ->    h  e  b  d
+h [j  k  l  ;]  ->  < [v  ^  >  s]
+  m  ,  .  /    ->       l  r  x  i
 
 Columnar:
-   u  i  o  p   ->      h  b  d  e 
+   u  i  o  p   ->      h  e  b  d 
 h [j  k  l  ;]  ->   < [v  ^  >  s] 
-   m  ,  .  /   ->      l  x  r  i 
+   m  ,  .  /   ->      l  r  x  i 
 
 Key:
 - []: indicates home row
@@ -36,9 +36,9 @@ Key:
 
 ;;;; top row
 CapsLock & u::home
-CapsLock & i::backspace
-CapsLock & o::delete
-CapsLock & p::end
+CapsLock & i::end
+CapsLock & o::backspace
+CapsLock & p::delete
 
 
 ;;;; home row
@@ -61,12 +61,12 @@ CapsLock & m::Send '^{left}'
 
 ; word right
 #HotIf GetKeyState("Shift")
-CapsLock & .::Send '^+{right}'
+CapsLock & ,::Send '^+{right}'
 #HotIf !GetKeyState("Shift")
-CapsLock & .::Send '^{right}'
+CapsLock & ,::Send '^{right}'
 
 ; delete line (place cursor at start of next line)
-CapsLock & ,::Send '{home}+{down}{backspace}'
+CapsLock & .::Send '{home}+{down}{backspace}'
 
 ; insert line above (place cursor at start of new line)
 CapsLock & /::Send '{up}{end}{enter}'
