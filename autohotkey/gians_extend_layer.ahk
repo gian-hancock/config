@@ -8,14 +8,14 @@ fewer features.
 Key map: qwerty keys -> caps layer function (see key below)
 
 Standard:
-  u  i  o  p    ->    h  e  b  d
-h [j  k  l  ;]  ->  < [v  ^  >  s]
-  m  ,  .  /    ->       l  r  x  i
+y  u  i  o  p    -> c  h  b  e  d
+ h [j  k  l  ;]  ->  < [v  ^  >  s]
+   n  m  ,  .  / ->    p  l  i  r  x
 
 Columnar:
-   u  i  o  p   ->      h  e  b  d 
-h [j  k  l  ;]  ->   < [v  ^  >  s] 
-   m  ,  .  /   ->      l  r  x  i 
+y  u  i  o  p   ->   c  h  b  e  d 
+h [j  k  l  ;]  ->   < [v  ^  >  s]
+n  m  ,  .  /   ->   p  l  i  r  x 
 
 Key:
 - []: indicates home row
@@ -28,6 +28,8 @@ Key:
 - x: delete line (place cursor at start of next line)
 - s: select line (excluding leading whitespace)
 - i: insert line above (place cursor at start of new line)
+- c: copy
+- p: paste
 */
 
 #Requires Autohotkey v2.0
@@ -35,9 +37,10 @@ Key:
 
 
 ;;;; top row
+CapsLock & y::^c
 CapsLock & u::home
-CapsLock & i::end
-CapsLock & o::backspace
+CapsLock & i::backspace
+CapsLock & o::end
 CapsLock & p::delete
 
 
@@ -52,6 +55,7 @@ CapsLock & `;::Send '{end}+{home}'
 
 
 ;;;; bottom row
+CapsLock & n::^v
 
 ; word left
 #HotIf GetKeyState("Shift")
@@ -59,14 +63,14 @@ CapsLock & m::Send '^+{left}'
 #HotIf !GetKeyState("Shift")
 CapsLock & m::Send '^{left}'
 
+; insert line above (place cursor at start of new line)
+CapsLock & ,::Send '{up}{end}{enter}'
+
 ; word right
 #HotIf GetKeyState("Shift")
-CapsLock & ,::Send '^+{right}'
+CapsLock & .::Send '^+{right}'
 #HotIf !GetKeyState("Shift")
-CapsLock & ,::Send '^{right}'
+CapsLock & .::Send '^{right}'
 
 ; delete line (place cursor at start of next line)
-CapsLock & .::Send '{home}+{down}{backspace}'
-
-; insert line above (place cursor at start of new line)
-CapsLock & /::Send '{up}{end}{enter}'
+CapsLock & /::Send '{home}+{down}{backspace}'
