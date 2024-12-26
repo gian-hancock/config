@@ -29,4 +29,8 @@
 	helper = cache --timeout=3600
 [core]
 	autocrlf = false
+	# editor = C:/users/gianh/repo/zed/target/release/zed.exe
+	hooksPath = C:/users/gianh/.githooks
 	#TODO: Put copy hooks to hooksPath and uncomment set hooksPath = ~/.githooks or %USERPROFILE%/.githooks
+[fetch]
+	prune = true
