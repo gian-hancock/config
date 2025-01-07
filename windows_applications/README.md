@@ -1,6 +1,7 @@
 # Winget Packages
 Run as administrator
 ```
+# -e option = Find package using exact match
 winget install -e --id JetBrains.PHPStorm
 winget install -e --id JetBrains.DataGrip
 winget install -e --id TheDocumentFoundation.LibreOffice
@@ -23,6 +24,8 @@ winget install -e --id Microsoft.VisualStudio.2022.BuildTools
 winget install -e --id Mozilla.Firefox
 winget install -e --id KDE.Krita
 winget install -e --id Anki.Anki
+winget install -e --id BurntSushi.ripgrep.MSVC
+
 ```
 
 # Chocolatey Packages
