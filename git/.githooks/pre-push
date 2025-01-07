@@ -1,7 +1,9 @@
-#!/bin/sh
+#!/bin/bash
 
 # This hook prevents accidentally pushing WIP code to non-wip branches. It checks if the target branch is a wip branch, 
 # if not, it prevents pushes which add any of the blacklisted substrings to the repository.
+#
+# NOTE: Use --no-verify option to bypass this hook
 # 
 # This hook is called with the following parameters:
 #
@@ -44,8 +46,20 @@ do
 		then
 			# New branch, examine all commits
 			echo >&2 "pre-commit hook: New branch $local_ref, examining all commits"
-			range="$local_oid"
+
+			# TODO: What if the remote we're pushing to ISN'T origin?
+			# Find the nearest commit that has been pushed to origin
+			ancestor_commit=$(git rev-list $local_oid --not --remotes=origin | tail -n1)
+
+			if [ -n "$ancestor_commit" ]; then
+				range="$ancestor_commit..$local_oid"
+			else
+				# TODO: When can this happen? When NOTHING has been pushed to origin? Then we should look at ALL commits
+				# TODO: What happens with a force push to an existing branch with a new unrelated history?
+				range="$local_oid"
+			fi
 		else
+			# TODO: Is this code path needed, can the above path be used in both cases?
 			# Update to existing branch, examine new commits
 			echo >&2 "pre-commit hook: Updating $local_ref, examining new commits"
 			range="$remote_oid..$local_oid"
@@ -53,27 +67,33 @@ do
 
 		echo >&2 "pre-commit hook: Checking commits in $range"
 
-		# Check for WIP commit
-		commit=$(git rev-list -n 1 --grep '^WIP' "$range")
-		if test -n "$commit"
+		# TODO: Check $is_remote_wip
+		if test -n "$is_remote_wip"
 		then
-			echo >&2 "pre-commit hook: Found WIP commit in $local_ref, not pushing"
-			exit 1
+			echo >&2 "pre-commit hook: Remote branch is a WIP branch, skipping checks"
 		else 
-			echo >&2 "pre-commit hook: No issues found, continuing"
-		fi
+			# Check for WIP commit
+			commit=$(git rev-list -n 1 --grep '^WIP' "$range")
+			if test -n "$commit"
+			then
+				echo >&2 "pre-commit hook: Found WIP commit in $local_ref, not pushing"
+				exit 1
+			else 
+				echo >&2 "pre-commit hook: No issues found, continuing"
+			fi
 
-		# Check for blacklited substrings in the contents of the pushed files
-		files=$(git diff --name-only "$range")
-		for file in $files; do
-			echo >&2 "pre-commit hook: Checking $file"
-			for pattern in "${blacklist[@]}"; do
-				if git show "$local_oid:$file" | grep -q "$pattern"; then
-					echo >&2 "pre-push hook: Found '$pattern' in $file, not pushing"
-					exit 1
-				fi
+			# Check for blacklited substrings in the contents of the pushed files
+			files=$(git diff --name-only "$range")
+			for file in $files; do
+				echo >&2 "pre-commit hook: Checking $file"
+				for pattern in "${blacklist[@]}"; do
+					if git show "$local_oid:$file" | grep -q "$pattern"; then
+						echo >&2 "pre-push hook: Found '$pattern' in $file, not pushing"
+						exit 1
+					fi
+				done
 			done
-		done
+		fi
 	fi
 done
 
